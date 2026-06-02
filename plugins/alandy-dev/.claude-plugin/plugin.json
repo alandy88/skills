@@ -1,0 +1,10 @@
+{
+  "name": "alandy-dev",
+  "version": "0.1.0",
+  "description": "Customized workflow skills forked from mattpocock/skills. Ships the epic + sub-issues variant of to-issues, which groups vertical slices under an epic parent issue when a breakdown produces 3 or more slices.",
+  "author": {
+    "name": "Peter Yu",
+    "email": "hyu067@gmail.com"
+  },
+  "keywords": ["issues", "sub-issues", "epic", "planning", "linear", "workflow", "to-issues"]
+}
