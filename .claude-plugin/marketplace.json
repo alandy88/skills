@@ -5,14 +5,14 @@
     "email": "hyu067@gmail.com"
   },
   "metadata": {
-    "description": "Personal fork of mattpocock/skills, packaged as a Claude Code marketplace for locally-customized workflow skills.",
+    "description": "Personal fork of mattpocock/skills, packaged as a Claude Code marketplace for local installation of the workflow skills.",
     "version": "0.1.0"
   },
   "plugins": [
     {
-      "name": "alandy-dev",
-      "source": "./plugins/alandy-dev",
-      "description": "Customized workflow skills: the epic + sub-issues variant of to-issues."
+      "name": "mattpocock-skills",
+      "source": ".",
+      "description": "Workflow skills for planning, triage, issues, PRDs, TDD, and codebase architecture."
     }
   ]
 }

@@ -1,11 +1,11 @@
 ---
 name: to-issues
-description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
+description: Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices. Groups slices under an epic parent issue when there are 3 or more. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
 ---
 
 # To Issues
 
-Break a plan into independently-grabbable issues using vertical slices (tracer bullets).
+Break a plan into independently-grabbable issues using vertical slices (tracer bullets). When the breakdown produces 3 or more slices, gather them under a single **epic** parent issue, with each slice published as a real sub-issue.
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
 
@@ -33,7 +33,7 @@ Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an
 
 ### 4. Quiz the user
 
-Present the proposed breakdown as a numbered list. For each slice, show:
+Present the proposed breakdown as a numbered list. If there are 3 or more slices, also show the proposed **epic title** at the top and state that the slices will be published as sub-issues under it. For each slice, show:
 
 - **Title**: short descriptive name
 - **Type**: HITL / AFK
@@ -46,20 +46,41 @@ Ask the user:
 - Are the dependency relationships correct?
 - Should any slices be merged or split further?
 - Are the correct slices marked as HITL and AFK?
+- (If an epic will be created) Is the epic title right?
 
 Iterate until the user approves the breakdown.
 
 ### 5. Publish the issues to the issue tracker
 
-For each approved slice, publish a new issue to the issue tracker. Use the issue body template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise.
+How you publish depends on how many slices were approved.
 
-Publish issues in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
+**If fewer than 3 slices:** publish them flat — one issue per slice, no epic. Use the slice template below. These issues are considered ready for AFK agents, so publish them with the correct triage label unless instructed otherwise. Publish in dependency order (blockers first) so you can reference real issue identifiers in the "Blocked by" field.
 
-<issue-template>
-## Parent
+**If 3 or more slices:** create an epic parent, then nest the slices under it:
 
-A reference to the parent issue on the issue tracker (if the source was an existing issue, otherwise omit this section).
+1. **Publish the epic first** using the epic template below. The epic is a container, so give it NO triage/AFK label. Capture its real issue identifier.
+   - Exception: if the source was an existing issue passed as an argument, treat THAT issue as the epic — nest the new slices under it and do NOT modify its body or labels.
+2. **Publish each slice as a sub-issue**, in dependency order (blockers first). For every slice:
+   - Set its real parent relationship to the epic (the tracker's native parent/sub-issue link — not a text reference).
+   - Apply the correct triage labels (AFK/HITL, category) to the **slice**, not the epic.
+   - Set real "blocked by" relations to the slices it depends on, referencing the already-published identifiers. Parent/child and blocking are independent — a sub-issue still gets blocking links.
 
+<epic-template>
+## Goal
+
+One paragraph describing the overall outcome this epic delivers.
+
+## Source
+
+A reference or link to the originating plan, spec, or PRD (or the existing parent issue, if one was passed in).
+
+## Slices
+
+A list of the child sub-issues. The tracker shows these natively once nested; list them here too for at-a-glance context.
+
+</epic-template>
+
+<slice-template>
 ## What to build
 
 A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation.
@@ -78,6 +99,6 @@ Avoid specific file paths or code snippets — they go stale fast. Exception: if
 
 Or "None - can start immediately" if no blockers.
 
-</issue-template>
+</slice-template>
 
-Do NOT close or modify any parent issue.
+Do NOT close or modify any pre-existing parent/epic issue that was passed in as the source.
