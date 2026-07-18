@@ -1,3 +1,7 @@
+## Domain knowledge
+
+Canonical reusable agent-routing knowledge lives in `D:/Git/lif-notes/notes/agent-systems/agent-runtime-and-routing.md` (Obsidian: `[[notes/agent-systems/agent-runtime-and-routing]]`). Keep this fork focused on skill implementation, invocation contracts, packaging, and upstream synchronization.
+
 Skills are organized into bucket folders under `skills/`:
 
 - `engineering/` — daily code work
