@@ -6,13 +6,21 @@
   },
   "metadata": {
     "description": "Personal fork of mattpocock/skills, packaged as a Claude Code marketplace for local installation of the workflow skills.",
-    "version": "0.2.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "mattpocock-skills",
-      "source": ".",
-      "description": "Workflow skills for planning, triage, issues, PRDs, TDD, and codebase architecture."
+      "source": "./",
+      "description": "Matt Pocock's agent skills for real engineering — grilling, spec/ticket flows, TDD, code review, domain modelling and more.",
+      "category": "engineering",
+      "keywords": [
+        "engineering",
+        "skills",
+        "tdd",
+        "code-review",
+        "grilling"
+      ]
     }
   ]
 }
