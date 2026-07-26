@@ -1,0 +1,43 @@
+{
+  "name": "skills",
+  "version": "1.2.0",
+  "description": "A personal fork of Matt Pocock's engineering and productivity skills for planning, implementation, review, and agent workflows.",
+  "author": {
+    "name": "Peter Yu",
+    "email": "hyu067@gmail.com",
+    "url": "https://github.com/alandy88"
+  },
+  "homepage": "https://github.com/alandy88/skills",
+  "repository": "https://github.com/alandy88/skills",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "productivity",
+    "skills",
+    "planning",
+    "tdd",
+    "code-review",
+    "agent-workflows"
+  ],
+  "skills": [
+    "./skills/engineering/",
+    "./skills/productivity/"
+  ],
+  "interface": {
+    "displayName": "Alandy Skills",
+    "shortDescription": "Engineering and productivity agent workflows",
+    "longDescription": "A curated collection of engineering and productivity skills for planning work, shaping specifications, implementing with TDD, reviewing code, and coordinating agent workflows.",
+    "developerName": "Peter Yu",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/alandy88/skills",
+    "defaultPrompt": [
+      "Help me choose the right workflow for this engineering task.",
+      "Turn this idea into a spec and implementation tickets.",
+      "Implement this change with TDD and review the result."
+    ]
+  }
+}
